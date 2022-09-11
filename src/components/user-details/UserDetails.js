@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {addDoc} from "firebase/firestore";
-import {userCollectionRef} from "../firestore_collection";
+import {userCollectionRef} from "../../firestore_collection";
+import './UserDetails.css';
 
 const UserDetails = () => {
 	const navigate = useNavigate();
@@ -79,16 +80,19 @@ const UserDetails = () => {
 				<button onClick={showName}>NEXT</button>
 			</div>
 
-			<div id='user_name' style={{display: 'none'}}>
-				<div id='return_birthday' onClick={showBirthday}>back</div>
-				<input type='text'
-					   id='name'
-					   style={{display: 'block'}}
-					   placeholder='type username'
-					   value={userName}
-					   onChange={(e) => setUserName(e.target.value)}
-				/>
-				<button onClick={addUserInfo}>NEXT</button></div>
+			<div className='name-container'>
+				<div id='user_name' className='user_name' style={{display: 'none'}}>
+					<div id='return_birthday' onClick={showBirthday}>back</div>
+					<input type='text'
+						   id='name'
+						   style={{display: 'block'}}
+						   placeholder='type username'
+						   value={userName}
+						   onChange={(e) => setUserName(e.target.value)}
+					/>
+					<button onClick={addUserInfo}>NEXT</button></div>
+			</div>
+
 		</div>
 	)
 }
