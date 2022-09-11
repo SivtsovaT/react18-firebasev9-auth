@@ -80,7 +80,7 @@ const UserDetails = () => {
 				<button onClick={showName}>NEXT</button>
 			</div>
 
-			<div className='name-container'>
+			<div className='name-wrapper'>
 				<div id='user_name' className='user_name' style={{display: 'none'}}>
 					<div id='return_birthday' onClick={showBirthday}>back</div>
 					<input type='text'
