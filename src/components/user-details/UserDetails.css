@@ -3,4 +3,18 @@
 }
 .name-wrapper input {
     width: 50px;
+    position: absolute;
+    top: 35%;
 }
+
+.back-link {
+    position: absolute;
+    top: 5%;
+    background: url("../../../public/images/back-link.svg");
+    content: "";
+    width: 14px;
+    height: 24px;
+    left: 15px;
+
+}
+

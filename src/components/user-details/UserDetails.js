@@ -10,6 +10,7 @@ const UserDetails = () => {
 	const [userAge, setUserAge] = useState('');
 	const [userGender, setUserGender] = useState('male');
 
+
 	const addUserInfo =  (e) => {
 		e.preventDefault();
 		if (userAge === '' || userName === '' || userGender === '') {
@@ -48,7 +49,6 @@ const UserDetails = () => {
 		user_birthday.style.display = 'none';
 		user_name.style.display = 'block';
 	}
-
 	return (
 		<div>
 			<div id='user_gender' style={{display: 'block'}}>
@@ -81,16 +81,20 @@ const UserDetails = () => {
 			</div>
 
 			<div className='name-wrapper'>
-				<div id='user_name' className='user_name' style={{display: 'none'}}>
-					<div id='return_birthday' onClick={showBirthday}>back</div>
+				<div id='user_name'  style={{display: 'none'}}>
+					<div id='return_birthday' className='back-link' onClick={showBirthday}>
+						<a href='#'></a>
+					</div>
+					<h2>What is your name?</h2>
 					<input type='text'
+						   className='input-style'
 						   id='name'
-						   style={{display: 'block'}}
+						   style={{display: 'block', width: '90%', left: '4%'}}
 						   placeholder='type username'
 						   value={userName}
 						   onChange={(e) => setUserName(e.target.value)}
 					/>
-					<button onClick={addUserInfo}>NEXT</button></div>
+					<button  className='btn-green w-90' onClick={addUserInfo}>NEXT</button></div>
 			</div>
 
 		</div>
