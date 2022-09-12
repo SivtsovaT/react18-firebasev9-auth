@@ -7,16 +7,16 @@ import './UserDetails.css';
 const UserDetails = () => {
 	const navigate = useNavigate();
 	const [userName, setUserName] = useState('');
-	const [userAge, setUserAge] = useState('');
+	const [userBirthday, setUserBirthday] = useState('');
 	const [userGender, setUserGender] = useState('male');
 
 
 	const addUserInfo =  (e) => {
 		e.preventDefault();
-		if (userAge === '' || userName === '' || userGender === '') {
+		if (userBirthday === '' || userName === '' || userGender === '') {
 			return
 		}
-		addDoc(userCollectionRef, {userAge, userName, userGender})
+		addDoc(userCollectionRef, {userBirthday, userName, userGender})
 			.then(response => {
 				console.log(response);
 				navigate("/home");
@@ -49,6 +49,7 @@ const UserDetails = () => {
 		user_birthday.style.display = 'none';
 		user_name.style.display = 'block';
 	}
+
 	return (
 		<div>
 			<div id='user_gender' style={{display: 'block'}}>
@@ -70,12 +71,12 @@ const UserDetails = () => {
 
 			<div id='user_birthday' style={{display: 'none'}}>
 				<div id='return_gender' onClick={showGender}>back</div>
-				<input type='number'
+				<input type='date'
 					   id='age'
 					   style={{display: 'block'}}
 					   placeholder='age'
-					   value={userAge}
-					   onChange={(e) => setUserAge(e.target.value)}
+					   value={userBirthday}
+					   onChange={(e) => setUserBirthday(e.target.value)}
 				/>
 				<button onClick={showName}>NEXT</button>
 			</div>
@@ -94,7 +95,9 @@ const UserDetails = () => {
 						   value={userName}
 						   onChange={(e) => setUserName(e.target.value)}
 					/>
-					<button  className='btn-green w-90' onClick={addUserInfo}>NEXT</button></div>
+					<button  className='btn-green w-90' onClick={addUserInfo}>NEXT</button>
+				</div>
+
 			</div>
 
 		</div>
