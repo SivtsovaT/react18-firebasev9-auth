@@ -1,10 +1,14 @@
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/userAuthContext";
+import {useState} from "react";
 
 const Home = () => {
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('')
+
   const handleLogout = async () => {
     try {
       await logOut();
@@ -13,6 +17,11 @@ const Home = () => {
       console.log(error.message);
     }
   };
+  const sum = () => {
+    let bob = parseInt(day + month);
+    console.log(bob)
+  }
+  sum();
 
   return (
     <>
@@ -24,6 +33,15 @@ const Home = () => {
           Log out
         </Button>
       </div>
+      <input type='number'
+             value={day}
+             onChange={(e) => setDay(e.target.value)}
+      />
+      <input type='text'
+             value={month}
+             onChange={(e) => setMonth(e.target.value)}
+      />
+      <div>{sum}</div>
     </>
   );
 };

@@ -69,19 +69,26 @@ const UserDetails = () => {
 				<button onClick={showBirthday}>NEXT</button>
 			</div>
 
-			<div id='user_birthday' style={{display: 'none'}}>
-				<div id='return_gender' onClick={showGender}>back</div>
-				<input type='date'
-					   id='age'
-					   style={{display: 'block'}}
-					   placeholder='age'
-					   value={userBirthday}
-					   onChange={(e) => setUserBirthday(e.target.value)}
-				/>
-				<button onClick={showName}>NEXT</button>
+			<div className='wrapper'>
+				<div id='user_birthday' style={{display: 'none'}}>
+					<div id='return_gender' className='back-link' onClick={showGender}>
+						<a href='#'></a>
+					</div>
+					<h2>When is your birthday?</h2>
+					<input type='date'
+						   className='input-style'
+						   id='age'
+						   style={{display: 'block', width: '90%', left: '4%'}}
+						   placeholder='age'
+						   value={userBirthday}
+						   onChange={(e) => setUserBirthday(e.target.value)}
+					/>
+					<button className='btn-green w-90' onClick={showName}>NEXT</button>
+				</div>
+
 			</div>
 
-			<div className='name-wrapper'>
+			<div className='wrapper'>
 				<div id='user_name'  style={{display: 'none'}}>
 					<div id='return_birthday' className='back-link' onClick={showBirthday}>
 						<a href='#'></a>
