@@ -77,3 +77,15 @@ h2 {
   outline: none;
 }
 
+@media screen and (max-width: 768px){
+  .btn-green {
+    left: 5%;
+    top: 87%;
+  }
+
+  h2 {
+    left: 15%;
+  }
+}
+
+

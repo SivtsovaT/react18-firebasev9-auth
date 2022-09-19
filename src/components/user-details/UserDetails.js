@@ -19,7 +19,7 @@ const UserDetails = () => {
 		addDoc(userCollectionRef, {userBirthday, userName, userGender})
 			.then(response => {
 				console.log(response);
-				navigate("/home");
+				navigate("/userinfo");
 			}).catch(error => console.log(error.message))
 	}
 	const showGender = () => {
@@ -55,17 +55,22 @@ const UserDetails = () => {
 			<div id='user_gender' style={{display: 'block'}}>
 				<p>{userGender}</p>
 				<input type='radio'
+					   className='gender-input'
 					   style={{display: 'block'}}
 					   value='male'
 					   checked={userGender === 'male' ? true : false}
 					   onChange={(event) => setUserGender(event.target.value)}
 				/>
+
 				<input type='radio'
 					   style={{display: 'block'}}
 					   value='female'
 					   checked={userGender === 'female' ? true : false}
 					   onChange={(event) => setUserGender(event.target.value)}
 				/>
+				{/*<label female-input>*/}
+				{/*	<div className='image'></div>*/}
+				{/*</label>*/}
 				<button onClick={showBirthday}>NEXT</button>
 			</div>
 
@@ -93,7 +98,7 @@ const UserDetails = () => {
 					<div id='return_birthday' className='back-link' onClick={showBirthday}>
 						<a href='#'></a>
 					</div>
-					<h2>What is your name?</h2>
+						<h2>What is your name?</h2>
 					<input type='text'
 						   className='input-style'
 						   id='name'

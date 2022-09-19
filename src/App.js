@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import UserDetails from "./components/user-details/UserDetails";
+import UserInfo from "./components/user-info/UserInfo";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/details" element={<UserDetails/>}/>
+              <Route path="/userinfo" element={<UserInfo/>}/>
+
             </Routes>
           </UserAuthContextProvider>
         </Col>
